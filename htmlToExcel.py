@@ -2,19 +2,27 @@ from bs4 import BeautifulSoup
 import os, openpyxl
 
 
-def write_to_xl(func_flag, *contents_for_xl):
+def write_to_xl(file_name, func_flag, *contents_for_xl):
     if func_flag == 0:
         with open('Result.xls', 'w') as Rd:
-            Rd.write('Citation, Title')
+            Rd.write(file_name)
             Rd.write('\n')
             for content in contents_for_xl:
                 Rd.write(str(content))
                 Rd.write('\n')
+            Rd.write('\n')
+            Rd.write('\n')
+            Rd.write('\n')
     else:
         with open('Result.xls', 'a') as Rd:
+            Rd.write(file_name)
+            Rd.write('\n')
             for content in contents_for_xl:
                 Rd.write(str(content))
                 Rd.write('\n')
+            Rd.write('\n')
+            Rd.write('\n')
+            Rd.write('\n')
 
 
 # root_path = input('Enter the Path of the folder where HTML files/folders exist: ')
@@ -33,8 +41,13 @@ for i in os.listdir(root_path):
                     all_files.append(i)
                     contents = html_file.read()
                     soup = BeautifulSoup(contents, 'html.parser')
-                    fir_p, sec_p, fin_p = soup.find('p'), soup.find_next_sibling('p'), soup.find_next_siblings('p')
-                    write_to_xl(flag, fir_p, sec_p, fin_p)
+                    all_p = soup('p')
+                    write_to_xl(i, flag, all_p)
+                    flag += 1
+                    if soup('img'):
+                        print("this file contains images", i)
+                        for img in soup('img'):
+                            write_to_xl(i, flag, img)
                     # for each_p in fin_p:
                     #     write_to_xl(each_p, flag)
                     no_of_files_parsed += 1
