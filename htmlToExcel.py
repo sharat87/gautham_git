@@ -21,8 +21,8 @@ def write_to_xl(func_flag, *contents_for_xl):
 root_path = r'D:\PharmSource\PharmSourceDocuments'
 no_of_files_parsed = 0
 flag = 0
-all_files = []
-parsed_files = []
+all_files = []  # list that takes all the file names selected for parsing
+parsed_files = []  # list that takes the file names that were parsed
 for i in os.listdir(root_path):
     if os.path.isfile(i):
         filename, file_ext = os.path.splitext(i)
