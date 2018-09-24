@@ -6,13 +6,11 @@ count = 0
 for path, directories, files in os.walk(search_directory):
     for file in files:
         file_name = os.path.join(path, file)
-        text = []
         try:
             with open(file_name, 'r') as fn:
                 count += 1
-                text.append(fn.readlines())
-            if 'Sorry' in text:
-                print(file_name)
+                if 'Sorry' in fn.readlines():
+                    print(file_name)
         except Exception as e:
             print('error in file: ', file_name)
 
