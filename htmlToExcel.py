@@ -1,3 +1,5 @@
+# program to export all html files' content to excel
+
 from bs4 import BeautifulSoup
 import os, openpyxl
 
@@ -26,7 +28,7 @@ def write_to_xl(file_name, func_flag, *contents_for_xl):
 
 
 # root_path = input('Enter the Path of the folder where HTML files/folders exist: ')
-root_path = r'D:\PharmSource\PharmSourceDocuments'
+root_path = r'D:\Dir1\subDir1'
 no_of_files_parsed = 0
 flag = 0
 all_files = []  # list that takes all the file names selected for parsing
