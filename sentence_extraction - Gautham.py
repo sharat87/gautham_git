@@ -30,7 +30,6 @@ key_words = ["expect to initiate", "plan to initiate", "initiate phase", "plans 
              "be ready to submit an NDA", "is expected to be initiated"]
 
 data = pd.read_csv("C:\\Users\\skolluru\\Desktop\\report.csv")
-# data = pd.read_csv("D:\\biopharm\\exe\\Projects\\ScraXBRL-master\\ScraXBRL-master\\SEC_URL\\report.csv")
 
 final_result = []
 print data
@@ -117,12 +116,10 @@ for d, row in data.iterrows():
         print(e, "Exception Occured")
         pass
     print len(final_result)
-    if len(final_result) > 900:
-        break
+    # if len(final_result) > 900:
+    #     break
 
 if len(final_result) > 0:
-    # file_path = "D:\\biopharm\\exe\\Projects\\ScraXBRL-master\\ScraXBRL-master\\Results\\report.csv"
-    # file_path = "report_venu.csv"
     file_path = "C:\\Users\\skolluru\\Desktop\\report_gautham.csv"
     with open(file_path, "wb") as csvFile:
         con = csv.DictWriter(csvFile, fieldnames=['Ticker', 'FilingDate', 'Phrase', 'Sentence', 'RecordDate', 'Type'])
