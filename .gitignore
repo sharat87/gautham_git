@@ -2,3 +2,5 @@ package.json
 /venv
 /venv/*
 /venv/*.*
+/google-search-results-python
+/google-search-results-python/*.*
