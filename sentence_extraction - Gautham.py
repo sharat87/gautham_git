@@ -95,8 +95,6 @@ for d, row in data.iterrows():
                                 extracted_content = extracted_content.replace("\n", ' ')
                                 extracted_content = extracted_content.replace("\t", ' ')
                                 extracted_content = extracted_content.replace(",", '')
-                                # extracted_content = extracted_content.replace("\"", "\"")
-                                # extracted_content = extracted_content.replace("\'", '\'')
                                 extracted_content = extracted_content.strip()
                                 current_date = date.today()
                                 current_date = current_date.strftime("%d-%m-%y")
@@ -106,24 +104,13 @@ for d, row in data.iterrows():
                                 sentence_data['Phrase'] = key
                                 sentence_data['Sentence'] = str(extracted_content)  # .strip('\n')
                                 sentence_split_list = sentence_data['Sentence'].split('.')
-                                # print(sentence_split_list)
                                 for sentence_split in sentence_split_list:
-                                    # print(sentence_split)
                                     sentence_split = sentence_split.strip()
                                     if sentence_data['Phrase'].upper() in sentence_split.upper():
-                                        # with open('C:\\Users\\skolluru\\Desktop\\req_content1.txt', 'a') as rc:
-                                        #     rc.write(sentence_split)
-                                        #     rc.write(str(len(sentence_split)))
-                                        #     rc.write('\n\n')
-                                        # if len(sentence_split) < 2000:
                                         sentence_data['Sentence'] = sentence_split
-                                        # else:
-                                        #     print('length is more than 2000 chars')
-                                # print(sentence_data['Sentence'])
                                 sentence_data['RecordDate'] = current_date
                                 sentence_data['Type'] = exhibit_type
                                 final_result.append(sentence_data)
-                                # print(sentence_data['Sentence'])
                                 print "final"
 
     except Exception as e:
