@@ -9,7 +9,7 @@ for path, directories, files in os.walk(search_directory):
         try:
             with open(file_name, 'r') as fn:
                 count += 1
-                if 'Sorry' in fn.readlines():
+                if 'Sorry' in fn.read():
                     print(file_name)
         except Exception as e:
             print('error in file: ', file_name)
